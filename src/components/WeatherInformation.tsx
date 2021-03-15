@@ -2,10 +2,15 @@ import React from 'react';
 import CurrentWeather from './CurrentWeather';
 import WeatherForecast from './WeatherForecast';
 
-const WeatherInformation = () => {
+type WeatherInformationProps = {
+    current: any,
+    forecast: any
+};
+
+const WeatherInformation = ({ weather }: WeatherInformationProps ) => {
     return (
         <div>
-            <CurrentWeather />
+            <CurrentWeather current ={weather.current} />
             <WeatherForecast />
         </div>
     )

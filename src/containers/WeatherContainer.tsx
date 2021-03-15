@@ -6,14 +6,13 @@ import { getWeatherForecast } from '../services/WeatherService';
 const WeatherContainer = () => {
     const [cities, setCities] = useState(['Melbourne', 'Sydney', 'Brisbane']);
     const [selectedCity, setSelectedCity] = useState('Melbourne');
-    const [currentWeather, setCurrentWeather] = useState(undefined);
-    const [forecastWeather, setForecastWeather] = useState(undefined);
+    const [weather, setWeather] = useState(undefined);
 
     useEffect(() => {
         async function getForecastData() {
             const response = await getWeatherForecast(selectedCity);
             console.log(response);
-            setForecastWeather(response);
+            setWeather(response);
         }
         getForecastData();
     }, [selectedCity]);
@@ -26,7 +25,7 @@ const WeatherContainer = () => {
     return (
         <div>
             <WeatherCities cities={cities} onCitySelection={handleCitySelection} />
-            <WeatherInformation />
+            <WeatherInformation weather={weather}/>
         </div>
     )
 }
