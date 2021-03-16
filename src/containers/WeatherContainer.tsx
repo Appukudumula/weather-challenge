@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CurrentWeather from '../components/CurrentWeather';
 import WeatherCities from '../components/WeatherCities';
 import WeatherInformation from '../components/WeatherInformation';
 import { getWeatherForecast } from '../services/WeatherService';
@@ -6,12 +7,11 @@ import { getWeatherForecast } from '../services/WeatherService';
 const WeatherContainer = () => {
     const [cities, setCities] = useState(['Melbourne', 'Sydney', 'Brisbane']);
     const [selectedCity, setSelectedCity] = useState('Melbourne');
-    const [weather, setWeather] = useState(undefined);
+    const [weather, setWeather] = useState<any>(undefined);
 
     useEffect(() => {
         async function getForecastData() {
             const response = await getWeatherForecast(selectedCity);
-            console.log(response);
             setWeather(response);
         }
         getForecastData();
@@ -23,10 +23,12 @@ const WeatherContainer = () => {
     }
 
     return (
-        <div>
-            <WeatherCities cities={cities} onCitySelection={handleCitySelection} />
-            <WeatherInformation weather={weather}/>
-        </div>
+        <>
+            <WeatherCities cities={cities} selectedCity={selectedCity} onCitySelection={handleCitySelection} />
+            {weather && (
+                <WeatherInformation current={weather.current} forecast={weather.forecast} />
+            )}
+        </>
     )
 }
 
