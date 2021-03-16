@@ -51,18 +51,18 @@ const CurrentWeather =  ({ weather } : any) => {
             <FlexRow>
                 <FlexColumn>
                     <Div>
-                        <TempHighLow>{weather.high}°</TempHighLow>
+                        <TempHighLow data-testid="high">{weather.high}°</TempHighLow>
                         <span>High</span>
                     </Div>
                     <Div>
-                        <TempHighLow>{weather.low}°</TempHighLow>
+                        <TempHighLow data-testid="low">{weather.low}°</TempHighLow>
                         <span>Low</span>
                     </Div>
                 </FlexColumn>
-                <Temp>{weather.temp}°</Temp>
+                <Temp data-testid="temp">{weather.temp}°</Temp>
                 <FlexColumn>
                     <img src={weather.condition.icon} alt="" />
-                    <span>{weather.condition.text}</span>
+                    <span data-testid="conditionText">{weather.condition.text}</span>
                 </FlexColumn>
             </FlexRow>
         </Container>
