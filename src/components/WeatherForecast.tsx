@@ -40,13 +40,13 @@ const WeatherForecast = ({ weather }: any) => {
             <FlexRow>
             <FlexColumn>
                     <Label>Forecast for tomorrow</Label>
-                    <span>23 Feb</span>
+                    <span data-testid="date">23 Feb</span>
             </FlexColumn>
             <div>
-                <Temp>{weather.avgtemp_c}°</Temp>
+                <Temp data-testid="temp">{weather.avgtemp_c}°</Temp>
             </div>
             <ForecastData>
-                <span>{weather.condition.text}</span>
+                <span data-testid="conditionText">{weather.condition.text}</span>
                 <img src={`http://${weather.condition.icon}`} alt="" />
             </ForecastData>
            </FlexRow>

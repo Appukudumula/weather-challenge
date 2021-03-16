@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import WeatherCities from '../WeatherCities';
-import { toEditorSettings } from 'typescript';
 
 describe('WeatherCities', () => {
 
