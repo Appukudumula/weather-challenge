@@ -24,7 +24,7 @@ const WeatherContainer = () => {
 
     return (
         <>
-            <WeatherCities cities={cities} selectedCity={selectedCity} onCitySelection={handleCitySelection} />
+            <WeatherCities data-testid="cities" cities={cities} selectedCity={selectedCity} onCitySelection={handleCitySelection} />
             {weather && (
                 <WeatherInformation current={weather.current} forecast={weather.forecast} />
             )}
