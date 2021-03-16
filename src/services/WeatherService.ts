@@ -1,5 +1,4 @@
 import axios from 'axios';
-import CurrentWeather from '../components/CurrentWeather';
 const API_KEY = '2a2f2f70cb9a422694530534211503';
 
 export const getWeatherForecast = async (city: string) => {
@@ -11,9 +10,11 @@ export const getWeatherForecast = async (city: string) => {
             temp: current.temp_c,
             high: current.temp_c+1,
             low: current.temp_c-1,
+            date: current.last_updated.split(" ")[0],
             condition: current.condition
         },
         forecast: {
+            date: forecast.forecastday[0].date,
             condition: forecast.forecastday[0].day.condition,
             mintemp_c: forecast.forecastday[0].day.mintemp_c,
             maxtemp_c: forecast.forecastday[0].day.maxtemp_c,

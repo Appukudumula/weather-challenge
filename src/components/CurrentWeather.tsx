@@ -44,10 +44,16 @@ const Div = styled.div `
 `;
 
 const CurrentWeather =  ({ weather } : any) => {
+
+    const getDateStr = (date: string) => {
+        const dateStr = new Date(date).toDateString().split(" ");
+        return `${dateStr[2]} ${dateStr[1]}`;
+    }
+
     return (
         <Container>
             <Title>Weather for the day</Title>
-            <span>22 Feb</span>
+            <span>{getDateStr(weather.date)}</span>
             <FlexRow>
                 <FlexColumn>
                     <Div>

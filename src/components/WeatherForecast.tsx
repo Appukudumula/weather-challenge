@@ -35,12 +35,18 @@ const ForecastData = styled.span `
 `;
 
 const WeatherForecast = ({ weather }: any) => {
+    
+    const getDateStr = (date: string) => {
+        const dateStr = new Date(date).toDateString().split(" ");
+        return `${dateStr[2]} ${dateStr[1]}`;
+    }
+
     return (
         <Container>
             <FlexRow>
             <FlexColumn>
                     <Label>Forecast for tomorrow</Label>
-                    <span data-testid="date">23 Feb</span>
+                    <span data-testid="date">{getDateStr(weather.date)}</span>
             </FlexColumn>
             <div>
                 <Temp data-testid="temp">{weather.avgtemp_c}°</Temp>

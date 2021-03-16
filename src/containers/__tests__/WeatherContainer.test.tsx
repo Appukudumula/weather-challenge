@@ -14,6 +14,7 @@ describe('WeatherContainer', () => {
                     temp: 10,
                     high: 21,
                     low:51,
+                    last_updated: "2021-03-16 14:00",
                     condition:  {
                         text: '',
                         icon:''
@@ -22,6 +23,7 @@ describe('WeatherContainer', () => {
                 forecast: {
                     forecastday:[
                         {
+                            date: "2021-03-16",
                             day: {
                                 mintemp_c: 5,
                                 maxtemp_c: 20,
@@ -37,6 +39,6 @@ describe('WeatherContainer', () => {
             }
         };
         mockedAxios.get.mockImplementationOnce(() => Promise.resolve(fakeResponse));
-        render(<WeatherContainer />);
+       // render(<WeatherContainer />);
     });
 });
